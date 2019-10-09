@@ -40,11 +40,17 @@ Audience: new programmers who have at least read The Rust Book.
 
 - How did you get into Rust?
 - Why did you quit Rust?
+- Why was Rust created?
+- How does Rust compare to X?
+- Where did the idea for ownership and borrowing come from?
+- Why isn't Rust popular in China?
+- Why is your Rust workflow so primitive?
 
 
 ## Potential Anecdotes
 
 - First contributions to Rust
+- Origins of ownership and borrowing
 - Converting from GC to lifetime-based memory management
 - Removal of the Rust runtime
 - Impostor syndrome and my first experiences on the Rust team
