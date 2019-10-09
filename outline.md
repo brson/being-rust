@@ -33,6 +33,11 @@ Audience: new programmers who have at least read The Rust Book.
 - Q&A
 - Building a community
 - Q&A
+- TiKV
+  - Overview
+  - Sub-projects
+  - How to contribute
+- Q&A
 - Guru notes
 - Q&A
 - Closing thoughts
