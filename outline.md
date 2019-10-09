@@ -16,6 +16,7 @@ Audience: new programmers who have at least read The Rust Book.
   - Rust elevator pitch
   - Rust users
   - Quotes and press
+- Live Demo
 - Q&A
 - Whirlwind Tour
 - Q&A
@@ -25,6 +26,8 @@ Audience: new programmers who have at least read The Rust Book.
 - Q&A
 - How to learn Rust
   - Crucial concepts
+  - Live resource browsing
+  - Exercise: find the answer on your own!
 - Q&A
 - Finding inspiration
 - Q&A
