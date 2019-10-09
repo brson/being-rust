@@ -1,7 +1,8 @@
 # Being Rust
 
-A guide for new Rust programmers /
-to become great Rust programmers.
+A guide for new Rust programmers to become great Rust programmers.
+
+Audience: new programmers who have at least read The Rust Book.
 
 
 ## Outline
@@ -23,10 +24,13 @@ to become great Rust programmers.
 - How I Rust
 - Q&A
 - How to learn Rust
+  - Crucial concepts
+- Q&A
+- Finding inspiration
 - Q&A
 - Building a community
 - Q&A
-- Guru Notes
+- Guru notes
 - Q&A
 - Closing thoughts
 - Q&A
@@ -38,14 +42,14 @@ to become great Rust programmers.
 - Why did you quit Rust?
 
 
-## Anecdotes
+## Potential Anecdotes
 
 - First contributions to Rust
 - Converting from GC to lifetime-based memory management
 - Removal of the Rust runtime
 - Impostor syndrome and my first experiences on the Rust team
 - Creating multirust & rustup
-- Patrick and I creating Servo
+- Creating servo
 - f128
 - Embedded Rust, xargo, etc.
 - Failing as the Rust project lead
