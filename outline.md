@@ -26,14 +26,18 @@ Audience: new programmers who have at least read The Rust Book.
 - Q&A
 - How to learn Rust
   - Crucial concepts
+  - Mindset
+  - Important resources
   - Live resource browsing
   - Exercise: find the answer on your own!
+  - Live exploring the Rust organization
+  - Live exploring a project's dependencies
 - Q&A
 - Finding inspiration
 - Q&A
 - Building a community
 - Q&A
-- TiKV
+- (PingCAP-specific) TiKV
   - Overview
   - Sub-projects
   - How to contribute
