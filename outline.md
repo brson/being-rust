@@ -1,8 +1,11 @@
 # Being Rust
 
-A guide for new Rust programmers to become great Rust programmers.
+A guide for new Rust programmers who will become great Rust programmers.
 
-Audience: new programmers who have at least read The Rust Book.
+
+## Audience
+
+New programmers who have at least read The Rust Book.
 
 
 ## Abstract
