@@ -5,6 +5,27 @@ A guide for new Rust programmers to become great Rust programmers.
 Audience: new programmers who have at least read The Rust Book.
 
 
+## Abstract
+
+This will be a personal talk about the nature of Rust: it's principles,
+history, culture, successes and failures; and what it takes to be
+a successful Rust programmer, in my personal experience.
+
+I will discuss and demonstrate aspects of my personal Rust workflow, with an
+emphasis on conveying how to discover and learn Rust on your own. I will offer
+specific tips and observations based on my experience that are not published
+elsewhere.
+
+There will be many opportunities to ask Rust-related questions, and recieve
+answers from an authority on the subject.
+
+
+## Author bio
+
+Brian Anderson is a programmer with 9 years of Rust experience. Ex-Mozilla,
+ex-Rust core team, currently at PingCAP on TiKV.
+
+
 ## Outline
 
 - Pre-roll
@@ -16,7 +37,7 @@ Audience: new programmers who have at least read The Rust Book.
   - Rust elevator pitch
   - Rust users
   - Quotes and press
-- Live Demo
+- Live memory-safety demo
 - Q&A
 - Whirlwind Tour
 - Q&A
