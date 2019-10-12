@@ -31,23 +31,22 @@ ex-Rust core team, currently at PingCAP on TiKV.
 
 ## Outline
 
-- Pre-roll
-- Greeting
-- Overview of session
-- Caution: WIP
-- About me (brief)
-- Rust hype
+- Being Rust (title)
+- Session Overview
+  - Caution: WIP
+  - About me (brief)
+  - About you
+- Hype!
   - Rust elevator pitch
   - Rust users
   - Quotes and press
-- Live memory-safety demo
-- Q&A
-- Quick Tour
-- Q&A
+  - Live memory-safety demo
+  - Quick Tour
+  - Q&A
 - Rust History
-- Q&A
+  - Q&A
 - How I work with Rust
-- Q&A
+  - Q&A
 - How to learn Rust
   - Crucial concepts
   - Mindset
@@ -56,16 +55,16 @@ ex-Rust core team, currently at PingCAP on TiKV.
   - Exercise: find the answer on your own!
   - Live exploring the Rust organization
   - Live exploring a project's dependencies
-- Q&A
-- Finding inspiration
-- Q&A
+  - Q&A
 - Beyond tech
+  - Finding inspiration
   - Incl. contributing to TiKV
-- Q&A
+  - Q&A
 - Guru notes
-- Q&A
+  - Q&A
 - Closing thoughts
-- Q&A
+- End
+  - Q&A
 
 
 ## Potential Q&A
@@ -93,3 +92,8 @@ ex-Rust core team, currently at PingCAP on TiKV.
 - Failing as the Rust project lead
 - Leaving Mozilla
 
+<!--
+
+todo: put anecdotes everywhere
+
+-->
