@@ -36,17 +36,17 @@ ex-Rust core team, currently at PingCAP on TiKV.
 - Overview of session
 - Caution: WIP
 - About me (brief)
-- Why Rust?
+- Rust hype
   - Rust elevator pitch
   - Rust users
   - Quotes and press
 - Live memory-safety demo
 - Q&A
-- Whirlwind Tour
+- Quick Tour
 - Q&A
-- History
+- Rust History
 - Q&A
-- How I Rust
+- How I work with Rust
 - Q&A
 - How to learn Rust
   - Crucial concepts
@@ -59,12 +59,8 @@ ex-Rust core team, currently at PingCAP on TiKV.
 - Q&A
 - Finding inspiration
 - Q&A
-- Building a community
-- Q&A
-- (PingCAP-specific) TiKV
-  - Overview
-  - Sub-projects
-  - How to contribute
+- Beyond tech
+  - Incl. contributing to TiKV
 - Q&A
 - Guru notes
 - Q&A
