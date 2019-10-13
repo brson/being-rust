@@ -46,10 +46,8 @@ ex-Rust core team, currently at PingCAP on TiKV.
   * User: PingCAP
   * User: Cloudflare
   - Quotes and press
-  - Q&A
-- Memory management
-  - 
-  - Live memory-safety demo
+  * Q&A
+- Ownership
 - Rust History
   - Q&A
 - How I work with Rust

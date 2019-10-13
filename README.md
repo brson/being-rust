@@ -1,20 +1,15 @@
 # TODO Title here
 
-TODO: description here
+
+## External material
+
+Some mentioned in talk.
+
+- https://github.com/brson/my-rust-lists
+- [guru-notes.md]
+
 
 ## Usage
-
-Modify [index.html] for your purpose.
-
-See [example.html] for usage patterns.
-
-Customize CSS theme in [css/theme/custom-theme.css].
-
-Customize other CSS in [css/custom.css].
-
-See baseline theme in [css/theme/brson-theme.css].
-
-See baseline CSS in [css/brson.css].
 
 Run with
 
@@ -22,13 +17,6 @@ Run with
 npm install
 npm start
 ```
-
-[index.html]: index.html
-[example.html]: example.html
-[css/theme/custom-theme.css]: css/theme/custom-theme.css
-[css/custom.css]: css/custom.css
-[css/theme/brson-theme.css]: css/theme/brson-theme.css
-[css/brson.css]: css/brson.css
 
 
 ## Potential image credits
