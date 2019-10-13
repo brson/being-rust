@@ -31,20 +31,24 @@ ex-Rust core team, currently at PingCAP on TiKV.
 
 ## Outline
 
-- Being Rust (title)
-- Session Overview
-  - Caution: WIP
-  - About me (brief)
-  - About you
-- Hype!
+* Being Rust (title)
+* Session Overview
+  * Bonus
+  * Caution: WIP
+  * About me (brief)
+  * About you
+* Hype!
   - Rust elevator pitch
+  - Key features
   - Rust users
   - Quotes and press
   - Live memory-safety demo
   - Quick Tour
   - Q&A
 - Rust History
+  - Why Rust was created
   - Q&A
+- Memory management
 - How I work with Rust
   - Q&A
 - How to learn Rust

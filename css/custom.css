@@ -1,0 +1,19 @@
+#brson h1, #brson h2, #brson h3 {
+    margin-bottom: 5rem;
+}
+
+#brson section {
+    font-size: 5rem;
+}
+
+#brson div.two-box.small-big {
+    grid-template-columns: 30% 70%;
+}
+
+#brson div.two-box.big-small {
+    grid-template-columns: 70% 30%;
+}
+
+#brson li {
+    line-height: 6rem;
+}
