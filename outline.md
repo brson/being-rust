@@ -38,15 +38,19 @@ ex-Rust core team, currently at PingCAP on TiKV.
   * About me (brief)
   * About you
 * Hype!
-  - Rust elevator pitch
-  - Key features
+  * Rust elevator pitch
+  * Key features
+  * Rust use cases
   - Rust users
+  - User: Mozilla
+  - User: Facebook
+  - User: Cloudflare
+  - User: Baidu
   - Quotes and press
   - Live memory-safety demo
   - Quick Tour
   - Q&A
 - Rust History
-  - Why Rust was created
   - Q&A
 - Memory management
 - How I work with Rust
