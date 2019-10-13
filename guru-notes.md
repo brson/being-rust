@@ -13,7 +13,19 @@ rigorous statistics and compensates better for variations between runs.
 Just clone things. The allocator is fast.
 
 
-## Drop impacts the API
+## Implementing `Drop` is a breaking change
+
+```
+struct Bar;
+struct Foo(Bar);
+impl Drop for Foo { fn drop(&mut self) { } }
+
+fn main() {
+   // XXX can't destructure
+   let Foo(i) = Foo(Bar);
+}
+```
+
 
 ## Know your cargo command lines
 
@@ -25,7 +37,6 @@ cargo check --all
 cargo test --all --no-run
 cargo check --all --no-run --profile=dev
 cargo test -p subproject
-cargo doc
 ```
 
 
@@ -75,14 +86,19 @@ https://doc.rust-lang.org/stable/std/fmt/#sign0
 ## Mutable aliasing
 
 
-## Use Rust CI tools
+## Build without the network
 
 ```
-cargo -Vv && rustc -Vv && rustup -Vv
 cargo generate-lockfile
 cargo fetch
 cargo build --locked --offline
 cargo test --locked --offline
+```
+
+
+## Rust CI tools
+
+```
 cargo clippy
 cargo fmt
 cargo outdated

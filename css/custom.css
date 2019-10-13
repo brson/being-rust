@@ -14,8 +14,20 @@
     grid-template-columns: 70% 30%;
 }
 
+#brson ul {
+    margin-top: 3rem;
+}
+
 #brson li {
     line-height: 6rem;
+}
+
+#brson p {
+    margin-bottom: 4rem;
+}
+
+#brson pre {
+    font-size: 4rem;
 }
 
 
@@ -59,3 +71,6 @@
 	height: auto;
 	margin: 1rem;
 }
+
+
+

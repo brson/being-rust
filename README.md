@@ -7,6 +7,7 @@ Some mentioned in talk.
 
 - https://github.com/brson/my-rust-lists
 - [guru-notes.md]
+- https://brson.github.io/2017/04/05/minimally-nice-maintainer
 
 
 ## Usage

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>TODO Title Here</title>
+	<title>Being Rust</title>
 
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/reveal.css">
@@ -280,8 +280,12 @@
               <li>Why: Security
               <li>Why: Performance
             </ul>
-            <p><a>TODO</a></p>
+            <p><a href="https://github.com/servo/servo">https://github.com/servo/servo</a></p>
           </div>
+
+          <aside class="notes">
+            Anecdote: creating servo with Rust<br>
+          </aside>
         </section>
         
         <section id="user-pingcap">
@@ -293,7 +297,7 @@
               <li>Why: Reliability
               <li>Why: Performance
             </ul>
-            <p><a>TODO</a></p>
+            <p><a href="https://github.com/tikv/tikv">https://github.com/tikv/tikv</a></p>
           </div>
         </section>
 
@@ -305,7 +309,7 @@
               <li>What: Edge compute sandboxing
               <li>Why: WASM
             </ul>
-            <p><a>TODO</a></p>
+            <p><a href="https://github.com/cloudflare/quiche">https://github.com/cloudflare/quiche</a></p>
           </div>
         </section>
 
@@ -313,6 +317,9 @@
           <div>
             <h3>Rust quotes and press</h3>
             <p>TODO</p>
+            <p><a href="https://github.com/brson/my-rust-lists/blob/master/rust-quotes-and-press.md">
+                https://github.com/brson/my-rust-lists/blob/master/rust-quotes-and-press.md
+            </a></p>
           </div>
         </section>
 
@@ -331,13 +338,13 @@
         
 
 
-        <!-- PART X: History -->
+        <!-- PART X: Memory management -->
 
 
 
 
-        <section id="s-ownership">
-          <div class="two-box" "big-big">
+        <section>
+          <div class="two-box" "big-small">
             <div>
               <div class="img-box">
                 <img src="images/grid.png">
@@ -345,8 +352,306 @@
             </div>
             <div>
               <div>
-                <h2>Rust history</h2>
+                <h2>Memory management</h2>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>The CPU and RAM</h3>
+            <pre>
++---------------+           +---------------+
+|               |           |               |
+|   I'm the     |           |    I'm the    |
+|     CPU       +-----------+      RAM      |
+|               |           |               |
+|               |     ^     |               |
++---------------+     |     +---------------+
+                      |
+               (this is slow)
+            </pre>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>The CPU and RAM</h3>
+            <pre>
+5b080  &lt;alloc::box_free&gt;:
+5b080: 48 89 f0     mov    %rsi, %rax
+5b083: 48 8b 76 08  mov    0x8(%rsi), %rsi
+5b087: 48 85 f6     test   %rsi, %rsi
+5b08a: 74 0a        je     5b096 &lt;alloc::box_free+0x16&gt;
+            </pre>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <div>
+              <h3>The callstack</h3>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box">
+              <div>
+                <h4>Source code</h4>
+                <pre>
+fn main() {
+    let a = 1;
+    foo(&a);
+}
+                </pre>
+              </div>
+              <div>
+                <h4>Stack frames</h4>
+                <pre>
+|=============| 0x00
+| fn main     |
+| a = 1       |
+|=============|
+                </pre>
+              </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box">
+              <div>
+                <h4>Source code</h4>
+                <pre>
+fn main() {
+    let a = 1;
+    foo(&a);
+}
+
+fn foo(ptr_a: &i32) {
+    let b = 2;
+    bar(ptr_a, &b);
+}
+                </pre>
+              </div>
+              <div>
+                <h4>Stack frames</h4>
+                <pre>
+|=============| 0x00
+| fn main     |
+| a = 1       |
+|=============| 0x10
+| fn foo      |
+| &lt;main regs&gt; |
+| ptr_a = &a  |
+| b = 2       |
+|=============|
+                </pre>
+              </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box">
+              <div>
+                <h4>Source code</h4>
+                <pre>
+fn foo(ptr_a: &i32) {
+    let b = 2;
+    bar(ptr_a, &b);
+}
+
+fn bar(ptr_a: &i32,
+       ptr_b: &i32) {
+    ...
+}
+                </pre>
+              </div>
+              <div>
+                <h4>Stack frames</h4>
+                <pre>
+ ...
+|=============| 0x10
+| fn foo      |
+| &lt;main regs&gt; |
+| ptr_a = &a  |
+| b = 2       |
+|=============| 0x20
+| fn bar      |
+| &lt;foo regs&gt;  |
+| ptr_a = &a  |
+| ptr_b = &b  |
+|=============|
+                </pre>
+              </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box">
+              <div>
+                <h4>Source code</h4>
+                <pre>
+fn main() {
+    let a = 1;
+    foo(&a);
+}
+
+fn foo(ptr_a: &i32) {
+    let b = 2;
+    bar(ptr_a, &b);
+}
+                </pre>
+              </div>
+              <div>
+                <h4>Stack frames</h4>
+                <pre>
+|=============| 0x00
+| fn main     |
+| a = 1       |
+|=============| 0x10
+| fn foo      |
+| &lt;main regs&gt; |
+| ptr_a = &a  |
+| b = 2       |
+|=============|
+                </pre>
+              </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box">
+              <div>
+                <h4>Source code</h4>
+                <pre>
+fn main() {
+    let a = 1;
+    foo(&a);
+}
+                </pre>
+              </div>
+              <div>
+                <h4>Stack frames</h4>
+                <pre>
+|=============| 0x00
+| fn main     |
+| a = 1       |
+|=============|
+                </pre>
+              </div>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>The heap</h3>
+            <ul>
+              <li>Not CPU registers
+              <li>Not the stack
+              <li>All the other RAM
+              <li>As allocated with <code>malloc</code>
+            </ul>
+          </div>
+
+          <aside class="notes">
+            TODO diagram<br>
+
+            Most RAM<br>
+          </aside>
+        </section>
+
+        <section>
+          <div class="two-box">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <h3>Questions?</h3>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Managing the heap</h3>
+            <ul>
+              <li>manually with alloc / free (like C)
+              <li>garbage collection (like Go)
+              <li>ownership and lifetimes (like Rust)
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Heap management examples</h3>
+            <p>TODO</p>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Problems of malloc/free</h3>
+            <ul>
+              <li>Use after free
+              <li>Double free
+              <li>Crashes == security bugs
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Problems of garbage collection</h3>
+            <ul>
+              <li>Bookeeping overhead
+              <li>CPU overhead
+              <li>Latency
+              <li>Runtime binary
+            </ul>
+          </div>
+        </section>
+
+
+
+
+        <!-- PART X: Ownership -->
+
+
+
+        
+        <section id="s-ownership">
+          <div class="two-box" "big-small">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <div>
+                <h3>Ownership in Rust</h3>
+              </div>
+            </div>
+          </div>
+
+          <aside class="notes">
+            Anecdote: origins of ownership<br>
+          </aside>
+        </section>
+
+        <section>
+          <div class="two-box">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <h3>Questions?</h3>
             </div>
           </div>
         </section>
@@ -378,6 +683,19 @@
           </aside>
         </section>
 
+        <section>
+          <div class="two-box">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <h3>Questions?</h3>
+            </div>
+          </div>
+        </section>
+
 
 
 
@@ -401,11 +719,24 @@
           </div>
 
           <aside class="notes">
-            TODO
+            Live code recursive 'dirsize'
           </aside>
         </section>
 
+        <section>
+          <div class="two-box">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <h3>Questions?</h3>
+            </div>
+          </div>
+        </section>
 
+        
 
 
         <!-- PART X: How to learn Rust -->
@@ -453,13 +784,106 @@
               </div>
             </div>
           </div>
+        </section>
 
+        <section>
+          <div class="two-box" "big-small">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <div>
+                <h2>Relationships</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box" "big-small">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <div>
+                <h2>Insecurity</h2>
+              </div>
+            </div>
+          </div>
           <aside class="notes">
-            TODO
+            Impostor syndrome<br>
+
+            Anecdote: first experience with dherman<br>
           </aside>
         </section>
 
+        <section>
+          <div class="two-box" "small-big">
+            <div>
+              <div>
+                <h2>Criticism</h2>
+              </div>
+              <a href="https://brson.github.io/2017/04/05/minimally-nice-maintainer">https://brson.github.io/2017/04/05/minimally-nice-maintainer</a>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+          </div>
+        </section>
 
+        <section>
+          <div class="two-box" "big-small">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <div>
+                <h2>Contributing</h2>
+              </div>
+            </div>
+          </div>
+
+          <aside class="notes">
+            Anecdote: Getting involved in Rust<br>
+          </aside>
+        </section>
+
+        <section>
+          <div class="two-box" "small-big">
+            <div>
+              <div>
+                <h2>Inspiration</h2>
+              </div>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-box">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <h3>Questions?</h3>
+            </div>
+          </div>
+        </section>
+        
 
 
         <!-- PART X: Guru notes -->
@@ -472,6 +896,9 @@
             <div>
               <div>
                 <h2>Guru notes</h2>
+                <a href="https://github.com/brson/my-rust-lists/blob/master/rust-guru-notes.md">
+                  https://github.com/brson/my-rust-lists/blob/master/rust-guru-notes.md
+                </a>
               </div>
             </div>
             <div>
@@ -491,9 +918,121 @@
         </section>
 
         <section>
+          <div>
+            <h3>Don't jump to lifetimes</h3>
+            <p>Just clone stuff.</p>
+            <ul>
+              <li>`memcpy` is fast.
+              <li>`malloc` is fast.
+            </ul>
+          </div>
         </section>
 
+        <section>
+          <div>
+            <h3>Don't use `#[bench]`</h3>
+            <p>Use criterion.</p>
 
+            <p><a href="https://github.com/bheisler/criterion.rs">https://github.com/bheisler/criterion.rs</a></p>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>`impl Drop` is a breaking change</h3>
+            <pre>
+struct Bar;
+struct Foo(Bar);
+impl Drop for Foo { fn drop(&mut self) { } }
+
+fn main() {
+    // XXX can't destructure
+    let Foo(i) = Foo(Bar);
+}
+            </pre>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Know the `cargo` command line</h3>
+            <p>
+              The defaults are not always what you want. Save time
+              by being precise with your `cargo` invocations.
+            </p>
+            <pre>
+cargo check --all
+cargo test --all --no-run
+cargo check --all --no-run --profile=dev
+cargo test -p subproject
+            </pre>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>The "turbofish"</h3>
+            <span class="fish">a::&lt;B&gt;();</span>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Alternate debug formatting</h3>
+            <pre>
+println!("{:?}", qux);
+println!("{:#?}", qux);
+            </pre>
+            <hr>
+            <pre>
+Foo { bar: 0, baz: 1 }
+Foo {
+    bar: 0,
+    baz: 1,
+}
+            </pre>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Building without the networking</h3>
+            <pre>
+cargo generate-lockfile
+cargo fetch
+cargo build --locked --offline
+cargo test --locked --offline
+            </pre>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Rust CI tools</h3>
+            <pre>
+cargo clippy
+cargo fmt
+cargo outdated
+cargo audit
+            </pre>
+          </div>
+        </section>
+        
+        <section>
+          <div class="two-box">
+            <div>
+              <div class="img-box">
+                <img src="images/grid.png">
+              </div>
+            </div>
+            <div>
+              <h3>Questions?</h3>
+            </div>
+          </div>
+        </section>
+
+        
+        
 
         <!-- PART X: Closing -->
 

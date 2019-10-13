@@ -47,7 +47,11 @@ ex-Rust core team, currently at PingCAP on TiKV.
   * User: Cloudflare
   - Quotes and press
   * Q&A
-- Ownership
+- Memory management
+  - Stack and heap
+  - Three types
+- Ownership in Rust
+- Ownership patterns
 - Rust History
   - Q&A
 - How I work with Rust
@@ -62,11 +66,13 @@ ex-Rust core team, currently at PingCAP on TiKV.
   - Live exploring a project's dependencies
   - Q&A
 - Beyond tech
-  - Finding inspiration
-  - Incl. contributing to TiKV
+  - Relationships
+  - Criticism
+  - Contributing
+  - Inspiration
   - Q&A
-- Guru notes
-  - Q&A
+* Guru notes
+  * Q&A
 - Closing thoughts
 - End
   - Q&A
