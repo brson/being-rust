@@ -107,4 +107,6 @@ ex-Rust core team, currently at PingCAP on TiKV.
 
 todo: put anecdotes everywhere
 
+todo: Go mm example
+
 -->
