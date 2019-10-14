@@ -10,7 +10,7 @@ void reuse_memory() {
 int main(int argv, char* argc) {
   char* s = malloc(1000);
   strcpy(s, "hello world\n");
-  free(s);
+  //free(s);
   //reuse_memory();
   printf("%s", s);
   free(s);

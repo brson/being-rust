@@ -69,7 +69,7 @@
         <section id="s-overview">
           <div class="two-box small-big">
             <div>
-              <h2>Session overview</h2>
+              <h2>What?</h2>
               <p>
                 <a href="https://github.com/brson/being-rust">
                   https://github.com/brson/being-rust
@@ -79,6 +79,7 @@
             <div>
               <ul>
                 <li>Rust hype
+                <li>Memory management
                 <li>Rust history
                 <li>How I work with Rust
                 <li>How to learn Rust
@@ -117,6 +118,10 @@
           <div class="img-slide">
             <img src="images/grid.png">
           </div>
+
+          <aside class="notes">
+            WIP
+          </aside>
         </section>
 
         <section id="s-me">
@@ -134,7 +139,7 @@
                 <li>PingCAP since 2018
                 <li>talent-plan/rust
               </ul>
-              <a href="https://brson.github.io/rust-stuff.html">https://brson.github.io/rust-stuff.html</a>
+              <a href="https://brson.github.io">brson.github.io</a>
             </div>
           </div>
         </section>
@@ -200,23 +205,10 @@
           <div>
             <h3>Key features</h3>
             <ul>
-              <li>Memory safety
-              <li>Deterministic memory management (no garbage collector)
+              <li><em>Memory safety</em>
+              <li>Deterministic memory management
+              <li>No runtime (no GC)
               <li>Ownership and borrowing
-              <li>No runtime
-              <li>Platform support
-            </ul>
-          </div>
-        </section>
-
-        <section id="s-features">
-          <div>
-            <h3>Key features</h3>
-            <ul>
-              <li>Memory safety
-              <li>Deterministic memory management (no garbage collector)
-              <li>Ownership and borrowing
-              <li>No runtime
               <li>Platform support
             </ul>
           </div>
@@ -236,10 +228,12 @@
                   <li>Multi-platform
                   <li>Databases
                   <li>Networking
+                  <li>Microcontrollers
                 </ul>
               </div>
               <div>
                 <ul>
+                  <li>Firmware
                   <li>Rendering
                   <li>Web backends
                   <li>Web frontends (WASM)
@@ -256,12 +250,15 @@
           <div>
             <h3>Rust users</h3>
             <div class="image-list">
-			  <img src="images/grid.png" width="1000" height="1000">
-			  <img src="images/grid.png" width="1000" height="1000">
-			  <img src="images/grid.png" width="1000" height="1000">
-			  <img src="images/grid.png" width="1000" height="1000">
-			  <img src="images/grid.png" width="1000" height="1000">
-			  <img src="images/grid.png" width="1000" height="1000">
+			  <img src="images/logo-baidu.png" width="1000" height="1000">
+			  <img src="images/logo-cloudflare.svg" width="1000" height="1000">
+			  <img src="images/logo-dropbox.svg" width="1000" height="1000">
+			  <img src="images/logo-facebook.png" width="1000" height="1000">
+			  <img src="images/logo-google.png" width="1000" height="1000">
+			  <img src="images/logo-microsoft.png" width="1000" height="1000">
+			  <img src="images/logo-mozilla.png" width="1000" height="1000">
+			  <img src="images/logo-pingcap.png" width="1000" height="1000">
+			  <img src="images/logo-yelp.png" width="1000" height="1000">
             </div>
           </div>
 
@@ -581,7 +578,6 @@ fn main() {
             <ul>
               <li>manually with alloc / free (like C)
               <li>garbage collection (like Go)
-              <li>ownership and lifetimes (like Rust)
             </ul>
           </div>
         </section>
@@ -596,6 +592,10 @@ fn main() {
             Live code examples in C and Go.<br>
 
             Use valgrind for C.<br>
+
+            stdlib.h string.h stdio.h<br>
+
+            typedef void(*fptr)(void)<br>
           </aside>
         </section>
 
@@ -769,6 +769,43 @@ fn main() {
 
           <aside class="notes">
             TODO
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <h3>Rust mindset</h3>
+            <ul>
+              <li>Be curious
+              <li>Write real projects
+              <li>Read real code
+              <li>Try again
+              <li>Ask for help
+            </ul>
+          </div>
+        </section>
+        
+        <section>
+          <div>
+            <h3>Rust mindset</h3>
+            <ul>
+              <li>Be curious
+              <li>Write real projects
+              <li>Read real code
+              <li>Try again
+              <li>Ask for help
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h3>Rust resources</h3>
+            <p>See README.md</p>
+          </div>
+
+          <aside class="notes">
+            Live resource browsing
           </aside>
         </section>
 
@@ -1060,6 +1097,10 @@ cargo audit
           <div class="img-slide">
             <img src="images/grid.png">
           </div>
+
+          <aside class="notes">
+            Closing thoughts
+          </aside>
         </section>
 
 
@@ -1071,7 +1112,7 @@ cargo audit
               </div>
             </div>
             <div>
-              <h1>Be Rust</h1>
+              <h1>Being Rust</h1>
               <p>
                 <a href="https://github.com/brson/being-rust">
                   https://github.com/brson/being-rust
