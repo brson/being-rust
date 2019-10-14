@@ -8,7 +8,7 @@ http://brson.github.io/being-rust/index.html
 Some mentioned in talk.
 
 - https://github.com/brson/my-rust-lists
-- [guru-notes.md]
+- [guru-notes.md](guru-notes.md)
 - https://limpet.net/mbrubeck/2019/02/07/rust-a-unique-perspective.html
 - https://doc.rust-lang.org/nomicon/aliasing.html
 - https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/
